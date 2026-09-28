@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-white text-graphite-800 antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .container-lux {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-7 py-3 text-sm font-medium text-navy-950 transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-navy-800 hover:shadow-lg hover:shadow-navy-900/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-700 focus-visible:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy-300 px-7 py-3 text-sm font-medium text-navy-800 transition-all duration-300 hover:border-navy-700 hover:bg-navy-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-400 focus-visible:ring-offset-2;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900;
+  }
+
+  .section-label {
+    @apply mb-3 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-gold-600;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl font-semibold leading-tight text-navy-900 sm:text-4xl lg:text-[2.75rem];
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-navy-900/10;
+  }
+}
+
+/* Scroll reveal — elementos começam ocultos e animam ao entrar na viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus visível global para acessibilidade por teclado */
+*:focus-visible {
+  outline: 2px solid theme('colors.gold.500');
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.navy.50');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.navy.300');
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.navy.500');
+}
